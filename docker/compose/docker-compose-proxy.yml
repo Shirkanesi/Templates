@@ -1,0 +1,21 @@
+# Docker-Compose to put the container inside of the network "proxy" and give it a fixed ip (for reverse-proxy)
+---
+version: "3.7"
+
+services:
+  yourApp:
+    # Build from Dockerfile
+    build: .
+    # Optional: image name
+    # image: yourimage
+    stdin_open: true
+    tty: true
+    networks:
+      proxy:
+        ipv4_address: 172.18.0.10
+
+networks:
+  # This will use the network called "proxy" (if it is already present)
+  proxy:
+    driver: bridge
+    name: proxy
