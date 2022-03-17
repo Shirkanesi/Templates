@@ -8,11 +8,16 @@ services:
     build: .
     # Optional: image name
     # image: yourimage
+    # pull_policy: always
     stdin_open: true
     tty: true
     networks:
       proxy:
-        ipv4_address: 172.18.0.10
+        ipv4_address: 172.18.0.10 # configure this for every service
+    # deploy:
+    #   restart_policy:
+    #     condition: any
+    #     delay: 5s # not supported by all versions
 
 networks:
   # This will use the network called "proxy" (if it is already present)
