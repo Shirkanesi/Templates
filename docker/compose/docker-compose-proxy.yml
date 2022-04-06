@@ -13,7 +13,7 @@ services:
     tty: true
     networks:
       proxy:
-        ipv4_address: 172.18.0.10 # configure this for every service
+        ipv4_address: 172.18.0.10 # configure this for every service. IP must match existing network "proxy"!
     # deploy:
     #   restart_policy:
     #     condition: any
